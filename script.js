@@ -1,9 +1,12 @@
+
 const navlist = document.getElementById('navlist');
 const hamburger = document.getElementById('hamburger');
 
-hamburger.addEventListener('click', () => {
-    navlist.classList.toggle('navlist-active');
-});
+if (hamburger && navlist) {
+    hamburger.addEventListener('click', () => {
+        navlist.classList.toggle('navlist-active');
+    });
+}
 
 function toggleChat() {
 
@@ -19,21 +22,65 @@ function toggleChat() {
 function sendMessage() {
 
     const input = document.getElementById("userInput");
-    const msg = input.value.trim();
+    const msg = input.value.trim().toLowerCase();
 
     if (msg === "") return;
 
     const chatBody = document.getElementById("chatBody");
 
-    chatBody.innerHTML +=
-    `<div class="user-message">${msg}</div>`;
+    // Show user message
+    chatBody.innerHTML += `
+        <div class="user-message">${msg}</div>
+    `;
 
-    let reply = "😊 Thanks for contacting Cakery Bakery!";
+    let reply = "";
 
+    if (msg.includes("hello") || msg.includes("hi")) {
+        reply = "👋 Hello! Welcome to Velvet Crumbs Bakery. How can I help you?";
+    }
+    else if (msg.includes("cake")) {
+        reply = "🎂 We have Birthday Cake, Chocolate Cake, Rose Cake, Cupcakes and Custom Cakes.";
+    }
+    else if (msg.includes("price")) {
+        reply = "💰 Our cake prices start from ₹30.";
+    }
+    else if (msg.includes("birthday")) {
+        reply = "🎉 Yes! We make beautiful Birthday Cakes. You can also order custom designs.";
+    }
+    else if (msg.includes("delivery")) {
+        reply = "🚚 Yes, we provide Home Delivery within the city.";
+    }
+    else if (msg.includes("location") || msg.includes("address")) {
+        reply = "📍 We are located at Nayapali, Bhubaneswar.";
+    }
+    else if (msg.includes("contact") || msg.includes("phone")) {
+        reply = "📞 Contact Number: 7853054605";
+    }
+    else if (msg.includes("time") || msg.includes("open")) {
+        reply = "🕘 We are open every day from 9:00 AM to 9:00 PM.";
+    }
+    else if (msg.includes("cookie")) {
+        reply = "🍪 Fresh Cookies are available for ₹30.";
+    }
+    else if (msg.includes("muffin")) {
+        reply = "🧁 Fresh Muffins are available for ₹150.";
+    }
+    else if (msg.includes("sandwich")) {
+        reply = "🥪 Veg Sandwich is available for ₹250.";
+    }
+    else if (msg.includes("thank")) {
+        reply = "😊 You're welcome! Have a sweet day.";
+    }
+    else {
+        reply = "🤖 Sorry, I didn't understand. Please ask about cakes, prices, delivery, location, contact or opening hours.";
+    }
+
+    // Show bot reply
     setTimeout(() => {
 
-        chatBody.innerHTML +=
-        `<div class="bot-message">${reply}</div>`;
+        chatBody.innerHTML += `
+            <div class="bot-message">${reply}</div>
+        `;
 
         chatBody.scrollTop = chatBody.scrollHeight;
 
@@ -88,9 +135,35 @@ if(menuContainer){
     });
 
 }
+function showSuccess(msg){
+
+    const success =
+    document.getElementById("successMessage");
+
+    success.innerHTML = msg;
+    success.style.display = "block";
+
+    setTimeout(() => {
+        success.style.display = "none";
+    }, 2000);
+}
+function addToCart(product, price){
+    alert("Button Clicked");
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.push({
+        name: product,
+        price: price
+    });
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    showSuccess(product + " Added To Cart");
+}
 function placeOrder(product){
 
-    const orders =
+    let orders =
     JSON.parse(localStorage.getItem("orders")) || [];
 
     orders.push(product);
@@ -100,9 +173,12 @@ function placeOrder(product){
         JSON.stringify(orders)
     );
 
-    alert(product + " added to cart!");
-}
+    showSuccess("🎉 Order Placed Successfully!");
 
+    setTimeout(() => {
+        window.location.href = "order-success.html";
+    }, 1500);
+}
 const subscribeForm =
 document.getElementById("subscribeForm");
 

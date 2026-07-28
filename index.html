@@ -15,8 +15,8 @@
           <nav class="navbar container">
           <div class="logo">
             <a href="#" class="logo-text">
-                cake<span>ry.</span>
-            </a>
+    Velvet <span>Crumbs</span>
+</a>
 </div>
 
 <ul class="navlist" id="navlist">
@@ -29,7 +29,7 @@
     </li>
 
     <li>
-        <a href="#Menu"class="navlinks">Menu</a>
+        <a href="#Menu" class="navlinks">Menu</a>
     </li>
 
     <li>
@@ -40,18 +40,14 @@
         <a href="#Order"class="navlinks">order</a>
     </li>
     <li>
-        <a href="#contact"class="navlinks">contact</a>
+       <a href="#Contact" class="navlinks">Contact</a>
     </li>
 
 </ul>
 <div class="nav-icons">
-    <a href="#" class="icons-link">
-        <i class="fa-solid fa-circle-user"></i>
+    <a href="signup.html">
+    <button>Get Started</button>
     </a>
-
-    <a href="#" class="icons-link">
-    <i class="fa-solid fa-shopping-cart"></i>
-        </a>
 </div>
 
       <div class="hamburger" id="hamburger">
@@ -76,8 +72,8 @@
             <h1>The perfect Baked<br> Cake Everyday!</h1>
             <p>we are passionate about creating fresh and delicious baked goods that bring joy to every customer. Our skilled bakers use high-quality ingredients to prepare a wide range of cakes, pastries, cookies, and breads with exceptional taste and freshness. Whether you are celebrating a special occasion or simply enjoying a sweet treat, our bakery is dedicated to providing products that combine flavor, quality, and creativity. Every item is carefully crafted to ensure a memorable experience, making Cakery Bakery the perfect place for all your baking needs.</p>
                     <div class="btn-container">
-                    <button>Read More</button>
-                    <button data-type="bordered-btn">Order Now</button>
+                    <!-- <button>Read More</button> -->
+                    <!-- <button data-type="bordered-btn">Order Now</button> -->
                  </div>
  
        </div>
@@ -126,7 +122,7 @@
     </div>
 
     <div class="content">
-        <h2>About <br>Cakery Bakery</h2>
+        <h2>About <br>Velvet Crumbs</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis saepe laborum harum doloremque, maiores accusamus, dignissimos magni explicabo hic in, sapiente distinctio.</p>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis voluptatem illo ipsum tenetur fugiat.</p>
         <button>Read More</button>
@@ -136,7 +132,8 @@
 </section>
 
     <!-- featured part -->
-                  <div class="card-container" id="menuContainer"> </div>                  <div class="column-container">
+                  <section id="Menu" class="other-section container">
+                  <div class="column-container">
                 <h2>Our Featured Food</h2>
                 <div class="search-box">
     <input
@@ -156,6 +153,7 @@
                      <div class="details">
                         <h4>$350.00</h4>
                         <h4>birthday Cake</h4>
+                        <button onclick="addToCart('Birthday Cake',350)"> Add to Cart</button>
                         </div>
                         </div>
 
@@ -166,6 +164,7 @@
                      <div class="details">
                         <h4>$150.00</h4>
                         <h4>muffins</h4>
+                       <button onclick="addToCart('Muffins',150)">Add to Cart</button>
                         </div>
                         </div>
 
@@ -176,6 +175,9 @@
                      <div class="details">
                         <h4>$100.00</h4>
                         <h4>waffles</h4>
+                        <button onclick="addToCart('Waffles',100)">
+    Add to Cart
+</button>
                         </div>
                         </div>
    
@@ -186,6 +188,9 @@
                      <div class="details">
                         <h4>$50.00</h4>
                         <h4>pancake</h4>
+                        <button onclick="addToCart('Pancake',50)">
+    Add to Cart
+</button>
                         </div>
                         </div>
                 </div>
@@ -197,6 +202,9 @@
                      <div class="details">
                         <h4>$45.00</h4>
                         <h4>piece cake</h4>
+                       <button onclick="addToCart('Piece Cake',45)">
+    Add to Cart
+</button>
                         </div>
                         </div>
 
@@ -207,6 +215,9 @@
                      <div class="details">
                         <h4>$30.00</h4>
                         <h4>chookies</h4>
+                        <button onclick="addToCart('Cookies',30)">
+    Add to Cart
+</button>
                         </div>
                         </div>
 
@@ -217,6 +228,9 @@
                      <div class="details">
                         <h4>$450.00</h4>
                         <h4>rosecake</h4>
+                        <button onclick="addToCart('Rose Cake',450)">
+    Add to Cart
+</button>
                         </div>
                         </div>
   
@@ -227,6 +241,9 @@
                      <div class="details">
                         <h4>$250.00</h4>
                         <h4>sandwich</h4>
+                       <button onclick="addToCart('Sandwich',250)">
+    Add to Cart
+</button>
                         </div>
                         </div>
 
@@ -359,9 +376,9 @@
             <i class="fa-brands fa-facebook-f"></i>
         </a>
 
-        <a href="#" class="icons-link">
-            <i class="fa-brands fa-twitter"></i>
-        </a>
+        <a href="cart.html" class="icons-link">
+    <i class="fa-solid fa-shopping-cart"></i>
+</a>
 
         <a href="#" class="icons-link">
             <i class="fa-brands fa-instagram"></i>
@@ -470,32 +487,49 @@
         </div>
    </footer>  
 
-   <!-- Chat Icon -->
+  <!-- Chatbot Icon -->
 <div class="chat-icon" onclick="toggleChat()">
     💬
 </div>
 
-<!-- Chat Window -->
+<!-- Chatbot Box -->
 <div class="chatbot-container" id="chatbot">
+
     <div class="chat-header">
-        Bakery Assistant
-        <span onclick="toggleChat()">✖</span>
+        <strong>Velvet Crumbs</strong>
+
+        <span onclick="toggleChat()" style="cursor:pointer;">
+            ✖
+        </span>
     </div>
 
     <div class="chat-body" id="chatBody">
+
         <div class="bot-message">
-            Hello 👋 Welcome to Cakery Bakery!
+            👋 Hello! Welcome to Velvet Crumbs.
+            How can I help you?
         </div>
+
     </div>
 
     <div class="chat-footer">
-        <input type="text" id="userInput" placeholder="Type message...">
-        <button type="button" onclick="sendMessage()">Send</button>
+
+        <input
+            type="text"
+            id="userInput"
+            placeholder="Type your message..."
+            onkeydown="if(event.key==='Enter') sendMessage()"
+        >
+
+        <button onclick="sendMessage()">
+            Send
+        </button>
+
     </div>
 </div>
 
 
-
-    <script src="main.js"></script>
+<div id="successMessage"></div>
+    <script src="script.js"></script>
 </body>
 </html>

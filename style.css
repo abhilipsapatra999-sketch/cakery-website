@@ -524,3 +524,14 @@ footer{
 }
 
 
+#successMessage{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: green;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    display: none;
+    z-index: 9999;
+}
